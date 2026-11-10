@@ -1,0 +1,22 @@
+# --- Core pipeline (needed from step 1) ---
+requests>=2.31          # HTTP calls to PubMed, ClinicalTrials.gov, SASL
+tenacity>=8.2           # retries / backoff on API errors
+python-dotenv>=1.0      # load API keys from .env
+pydantic>=2.5           # schema validation for every record
+beautifulsoup4>=4.12    # parse SASL HTML pages
+lxml>=5.0               # fast XML/HTML parser (PubMed efetch returns XML)
+
+# --- Processing (steps 3-6) ---
+pandas>=2.1             # read the scoring workbook, tabular work
+openpyxl>=3.1           # lets pandas read the .xlsx workbook (input only)
+rapidfuzz>=3.5          # fuzzy name matching for deduplication
+
+# --- Network (step 7) ---
+networkx>=3.2           # graph build + centrality metrics
+
+# --- Web app (step 8) ---
+streamlit>=1.40         # dashboard
+pyvis>=0.3.2            # interactive network graph inside Streamlit
+
+# --- Dev ---
+pytest>=8.0             # tests
