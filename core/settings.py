@@ -10,6 +10,7 @@ load_dotenv(BASE_DIR / ".env")
 
 DATA_DIR = BASE_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
+PROCESSED_DIR = DATA_DIR / "processed"
 CONFIG_DIR = BASE_DIR / "config"
 
 NCBI_API_KEY = os.getenv("NCBI_API_KEY")  # optional, raises the rate limit from 3 to 10 req/s
