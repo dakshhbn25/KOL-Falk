@@ -1,0 +1,23 @@
+{
+  "project_id": "dr_falk_swiss_psc",
+  "client": "Dr. Falk Pharma",
+  "country": "CH",
+  "country_name": "Switzerland",
+  "disease_code": "PSC",
+  "sources": {
+    "pubmed": {
+      "disease_query": "\"primary sclerosing cholangitis\"[tiab] OR \"Cholangitis, Sclerosing\"[MeSH Terms]",
+      "country_filter": "Switzerland[ad]",
+      "batch_size": 200
+    },
+    "clinicaltrials": {
+      "conditions": ["primary sclerosing cholangitis", "primary biliary cholangitis", "cholestasis"],
+      "location": "Switzerland",
+      "page_size": 100
+    },
+    "sasl": {
+      "studies_url": "https://sasl.unibas.ch/7studies.php",
+      "investigators_url": "https://sasl.unibas.ch/5investigators.php"
+    }
+  }
+}
