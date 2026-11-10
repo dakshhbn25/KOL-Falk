@@ -3,6 +3,7 @@
   "client": "Dr. Falk Pharma",
   "country": "CH",
   "country_name": "Switzerland",
+  "country_config": "switzerland",
   "disease_code": "PSC",
   "sources": {
     "pubmed": {

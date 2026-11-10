@@ -82,8 +82,30 @@ def run_pubmed():
     return mentions, stats
 
 
+def run_investigators(project_id: str = "dr_falk_swiss_psc"):
+    """ClinicalTrials.gov + SASL people -> data/processed/extracted_investigators.json"""
+    from processing.investigator_extraction import extract_clinicaltrials, extract_sasl
+
+    project = settings.load_project(project_id)
+    country = settings.load_country(project["country_config"])
+    ct_path, ct_payload = latest_raw("clinicaltrials")
+    sasl_path, sasl_payload = latest_raw("sasl")
+    ct_mentions, ct_stats = extract_clinicaltrials(ct_payload, country["country_name"])
+    sasl_mentions, sasl_stats = extract_sasl(sasl_payload, country["place_and_institution_words"])
+    out = settings.PROCESSED_DIR / "extracted_investigators.json"
+    save_json(out, {
+        "input_files": {"clinicaltrials": ct_path.name, "sasl": sasl_path.name},
+        "stats": {"clinicaltrials": ct_stats, "sasl": sasl_stats},
+        "mentions": [m.model_dump() for m in ct_mentions + sasl_mentions],
+    })
+    log.info("ClinicalTrials.gov: %s", ct_stats)
+    log.info("SASL: %s", sasl_stats)
+    return ct_mentions + sasl_mentions
+
+
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     mentions, stats = run_pubmed()
     top = Counter(m.full_name for m in mentions).most_common(10)
     print("Most frequent author names:", top)
+    run_investigators()

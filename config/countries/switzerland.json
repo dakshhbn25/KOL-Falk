@@ -1,0 +1,14 @@
+{
+  "country_code": "CH",
+  "country_name": "Switzerland",
+  "name_variants": ["Switzerland", "Schweiz", "Suisse", "Svizzera", "Swiss"],
+  "cantons": ["AG", "AI", "AR", "BE", "BL", "BS", "FR", "GE", "GL", "GR", "JU", "LU", "NE", "NW", "OW", "SG", "SH", "SO", "SZ", "TG", "TI", "UR", "VD", "VS", "ZG", "ZH"],
+  "place_and_institution_words": [
+    "Bern", "Berne", "Basel", "Zürich", "Zurich", "Genève", "Geneve", "Geneva", "Lausanne",
+    "Lugano", "Bellinzona", "Aarau", "Luzern", "Lucerne", "St.Gallen", "Gallen", "Winterthur",
+    "Chur", "Fribourg", "Sion", "Locarno", "Ticino", "Inselspital", "Universitätsspital",
+    "Universitaetsspital", "Kantonsspital", "Spital", "Klinik", "CHUV", "HUG", "USZ", "USB",
+    "Epatocentro", "Via", "Soldino", "Hôpital", "Hopital", "Ospedale", "Universität",
+    "University", "Hospital", "Centre", "Center"
+  ]
+}

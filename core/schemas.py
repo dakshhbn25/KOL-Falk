@@ -18,6 +18,9 @@ class PersonMention(BaseModel):
     last_name: str | None = None
     fore_name: str | None = None
     initials: str | None = None
+    title: str | None = None        # academic title as printed, e.g. "Prof. Dr. med."
+    email: str | None = None        # only if published by the source itself
+    phone: str | None = None
     orcid: str | None = None        # bare id like 0000-0002-1825-0097
     affiliations: list[str] = Field(default_factory=list)
     position: int | None = None     # author position in the paper, if relevant

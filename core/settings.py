@@ -18,6 +18,11 @@ NCBI_EMAIL = os.getenv("NCBI_EMAIL")      # optional, NCBI likes a contact addre
 TOOL_NAME = "kol_intelligence_platform"
 
 
+def load_country(country_config: str) -> dict:
+    path = CONFIG_DIR / "countries" / f"{country_config}.json"
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def load_project(project_id: str) -> dict:
     path = CONFIG_DIR / "projects" / f"{project_id}.json"
     return json.loads(path.read_text(encoding="utf-8"))
